@@ -1,0 +1,43 @@
+
+const dimensions = {
+  width: 300,
+  height: 600,
+  depth: 800
+};
+
+const kind = ["Ratio", "Volume", "DateTime"];
+const obj = [];
+let selectedKind;
+for(let i = 0; i < kind.length; i++)
+{
+    selectedKind = kind[i].toLowerCase();
+    let val = FindValue(selectedKind);
+    const jsonObject = {
+        name: 'object' + (i + 1),
+        kind: selectedKind,
+        value: val
+    };
+    obj.push(jsonObject);
+}
+
+// Calculating value based on dimensions
+function FindValue(selectedKind: string ) : number {
+    let value: number;
+    switch (selectedKind) {
+    case "ratio":
+        value = dimensions.width / dimensions.height;
+        break;
+    case "volume":
+        value = dimensions.width * dimensions.height * dimensions.depth;
+        break;
+    case "datetime":
+        value = Date.now(); // You need to implement your own logic for DateTime value
+        break;
+    default:
+        value = 0; // default value
+        break;
+    }
+    return value;
+}
+
+console.log(obj);
