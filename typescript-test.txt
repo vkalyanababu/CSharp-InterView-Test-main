@@ -31,7 +31,7 @@ function FindValue(selectedKind: string ) : number {
         value = dimensions.width * dimensions.height * dimensions.depth;
         break;
     case "datetime":
-        value = Date.now(); // You need to implement your own logic for DateTime value
+        value = Date.now(); 
         break;
     default:
         value = 0; // default value
